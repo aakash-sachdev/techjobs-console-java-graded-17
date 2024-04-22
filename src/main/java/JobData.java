@@ -95,6 +95,9 @@ public class JobData {
         loadData();
 
         // TODO - implement this method
+        // Initialize a list to store jobs that contain specified value
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
         return null;
     }
 
