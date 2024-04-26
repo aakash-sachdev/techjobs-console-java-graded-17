@@ -129,7 +129,7 @@ public class TechJobs {
             System.out.println("*****");
         }
         if(someJobs.isEmpty()) {
-            System.out.printf("No Results");
+            System.out.printf("No Results"); //printf this can be modified was failing with println
         }
     }
 }

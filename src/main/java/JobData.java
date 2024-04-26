@@ -75,7 +75,8 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            // added loewr case to compare the search value with the field value
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -90,6 +91,8 @@ public class JobData {
      * @return      List of all jobs with at least one field containing the value
      */
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
+        //The method is named findByValue.
+        //It takes a single parameter, value, which is the search term we want to find in the job data.
 
         // load data, if not already loaded
         loadData();
@@ -97,8 +100,21 @@ public class JobData {
         // TODO - implement this method
         // Initialize a list to store jobs that contain specified value
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-
-        return null;
+        //We start by getting an empty ArrayList called jobs. This ArrayList will hold all the jobs that match our search.
+        for (HashMap<String, String> job : allJobs) {
+            //The code iterates over each job in the allJobs list
+            for (String key : job.keySet()) {
+                // For each job, it iterates over each key (column) in the job dictionary.
+                if (job.get(key).toLowerCase().contains(value.toLowerCase())) {
+                    // If the search term is found in any column, add the job to the results.
+                    //  The comparison is case-insensitive (both the job value and the search term are converted to lowercase before comparison).
+                    jobs.add(job);
+                    // The inner loop breaks after adding a job to the jobs list. This prevents the same job from being added multiple times if it matches the search term in multiple columns.
+                    break;
+                }
+            }
+        }
+        return jobs;
     }
 
     /**
