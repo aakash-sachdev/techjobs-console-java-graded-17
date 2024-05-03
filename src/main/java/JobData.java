@@ -100,9 +100,9 @@ public class JobData {
         // TODO - implement this method
         // Initialize a list to store jobs that contain specified value
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-        //We start by getting an empty ArrayList called jobs. This ArrayList will hold all the jobs that match our search.
+        //Started by getting an empty ArrayList(jobs). This ArrayList will hold all the jobs that match our search.
         for (HashMap<String, String> job : allJobs) {
-            //The code iterates over each job in the allJobs list
+            //Iterateing over each job in the allJobs list
             for (String key : job.keySet()) {
                 // For each job, it iterates over each key (column) in the job dictionary.
                 if (job.get(key).toLowerCase().contains(value.toLowerCase())) {
